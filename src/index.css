@@ -3,11 +3,101 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header {
+  background-color: #f8c21f;
+  display: flex;
+  justify-content: space-between;
 }
+
+header button {
+  background-color: #15133C;
+  border-radius: 5%;
+  color: white;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  margin: 1.3rem 1rem 0 0;
+  padding: 0.5rem 0.7rem;
+}
+
+h1 {
+  color: white;
+  margin: 0;
+  padding: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+form {
+  background-color: #F1EEE9;
+  margin: 2rem auto;
+  padding: 1rem 0;
+  width: 70vw;
+  max-width: 600px;
+}
+
+label {
+  display: block;
+  margin: 0 0 0.5rem 1rem;
+}
+
+.form-group {
+  display: flex;
+}
+
+input {
+  border: none;
+  flex-grow: 4;
+  margin: 0 1rem;
+  padding: 0.5rem 0.7rem;
+  /* width: 80%; */
+}
+
+button[type=submit] {
+  background-color: #15133C;
+  border: none;
+  border-radius: 5%;
+  color: white;
+  flex-grow: 1;
+  font-size: 1rem;
+  margin-right: 1rem;
+  padding: 0.5rem 0.7rem;
+  /* width: 20%; */
+}
+
+/* Kan lists kombineras med form? */
+.lists {
+  background-color: #F1EEE9;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem auto;
+    /* padding: 0.5rem 0; */
+  width: 70vw;
+  max-width: 600px;
+}
+
+.custom-lists {
+  background-color: white;
+}
+
+.lists h3 {
+   margin-bottom: 0;
+}
+
+.lists p {
+  margin: 0;
+  padding: 0.5rem 0.7rem;
+ 
+}
+
+.delete-btn {
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.7rem 1rem 0.5rem;
+}
+

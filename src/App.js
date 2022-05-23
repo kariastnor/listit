@@ -1,25 +1,64 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import Home from "./Home";
+import SharedLayout from "./SharedLayout";
+import { Routes, Route } from "react-router-dom";
+import CustomList from "./CustomList";
+
+// First check if there's a local list stored on computer
+function getLocalStorage() {
+  let storedList = localStorage.getItem("list_of_custom_lists_220523zy");
+  if (storedList) {
+    // Need to convert back from string to object
+    return JSON.parse(storedList);
+  } else {
+    return [];
+  }
+}
+
+const AppContext = React.createContext();
+
+// SAVE TO LOCAL STORAGE AFTER FIRST CHECKING
 
 function App() {
+  const [lists, setLists] = useState(getLocalStorage());
+  const [newList, setNewList] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem(
+      "list_of_custom_lists_220523zy",
+      JSON.stringify(lists)
+    );
+  }, [lists]);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setLists((prevLists) => {
+      return [
+        ...prevLists,
+        { name: newList, id: new Date().getTime().toString() },
+      ];
+    });
+    setNewList("");
+  }
+
+  function deleteList(id) {
+    setLists((prevLists) => {
+      return prevLists.filter((list) => list.id !== id);
+    });
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider
+      value={{ lists, setLists, newList, setNewList, handleSubmit, deleteList }}
+    >
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path=":listName" element={<CustomList />} />
+        </Route>
+      </Routes>
+    </AppContext.Provider>
   );
 }
 
 export default App;
+export { AppContext };
