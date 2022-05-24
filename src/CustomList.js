@@ -2,11 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "./App";
 import { useParams } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
+import _ from "lodash";
 
 function CustomList() {
   const { lists } = useContext(AppContext);
   const { listName } = useParams();
-  const customList = lists.find((list) => list.name === listName);
+  const customList = lists.find((list) => _.kebabCase(list.name) === listName);
   const [items, setItems] = useState(getLocalStorageCustom());
   const [newItem, setNewItem] = useState("");
 
@@ -89,7 +90,7 @@ function CustomList() {
       {items.length > 0 && (
         <button
           type="button"
-          className="standard-btn remove-btn"
+          className="standard-btn center-btn"
           onClick={() => setItems([])}
         >
           Remove all items
