@@ -66,6 +66,7 @@ function CustomList() {
             // placeholder="Enter a name for the list"
             value={newItem}
             onChange={(event) => setNewItem(event.target.value)}
+            autoComplete="off"
           />
           <button type="submit">Add</button>
         </div>
@@ -85,6 +86,15 @@ function CustomList() {
             </div>
           );
         })}
+      {items.length > 0 && (
+        <button
+          type="button"
+          className="standard-btn remove-btn"
+          onClick={() => setItems([])}
+        >
+          Remove all items
+        </button>
+      )}
     </>
   );
 }
