@@ -37,7 +37,7 @@ form {
   background-color: #F1EEE9;
   margin: 2rem auto;
   padding: 1rem 0;
-  width: 70vw;
+  width: 85vw;
   max-width: 600px;
 }
 
@@ -48,6 +48,7 @@ label {
 
 .form-group {
   display: flex;
+  flex-wrap: nowrap;
 }
 
 input {
@@ -56,6 +57,10 @@ input {
   margin: 0 1rem;
   padding: 0.5rem 0.7rem;
   /* width: 80%; */
+}
+
+input.error {
+  border: solid red;
 }
 
 button[type=submit] {
@@ -71,6 +76,18 @@ button[type=submit] {
   /* width: 20%; */
 }
 
+@media screen and (max-width: 360px) {
+  .form-group {
+    flex-wrap: wrap;
+    }
+
+  button[type=submit] {
+    flex-basis: 70px;
+    margin: 0.6rem 1rem 0;
+    max-width: 70px;
+    }
+}
+
 /* Kan lists kombineras med form? */
 .lists {
   background-color: #F1EEE9;
@@ -78,7 +95,7 @@ button[type=submit] {
   justify-content: space-between;
   margin: 0.7rem auto;
     /* padding: 0.5rem 0; */
-  width: 70vw;
+  width: 85vw;
   max-width: 600px;
 }
 

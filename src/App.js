@@ -32,13 +32,18 @@ function App() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    setLists((prevLists) => {
-      return [
-        ...prevLists,
-        { name: newList, id: new Date().getTime().toString() },
-      ];
-    });
-    setNewList("");
+    if (newList) {
+      document.getElementById("newList").className = "";
+      setLists((prevLists) => {
+        return [
+          ...prevLists,
+          { name: newList, id: new Date().getTime().toString() },
+        ];
+      });
+      setNewList("");
+    } else {
+      document.getElementById("newList").classList.add("error");
+    }
   }
 
   function deleteList(id) {

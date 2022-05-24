@@ -32,13 +32,18 @@ function CustomList() {
 
   function handleCustomSubmit(event) {
     event.preventDefault();
-    setItems((prevItems) => {
-      return [
-        ...prevItems,
-        { name: newItem, id: new Date().getTime().toString() },
-      ];
-    });
-    setNewItem("");
+    if (newItem) {
+      document.getElementById("newItem").className = "";
+      setItems((prevItems) => {
+        return [
+          ...prevItems,
+          { name: newItem, id: new Date().getTime().toString() },
+        ];
+      });
+      setNewItem("");
+    } else {
+      document.getElementById("newItem").classList.add("error");
+    }
   }
 
   function deleteItem(id) {
@@ -56,7 +61,7 @@ function CustomList() {
         <label htmlFor="newItem">Add a new item to list</label>
         <div className="form-group">
           <input
-            id="newList"
+            id="newItem"
             type="text"
             // placeholder="Enter a name for the list"
             value={newItem}

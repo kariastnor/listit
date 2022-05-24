@@ -6,7 +6,7 @@ function SharedLayout() {
     <>
       <header>
         <Link to="/">
-          <h1>Listit</h1>
+          <h1>Yourganiser</h1>
         </Link>
         <Link to="/">
           <button type="button">Home</button>
