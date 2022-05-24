@@ -13,7 +13,6 @@ function Form() {
           placeholder="Enter a name for the list"
           value={newList}
           onChange={(event) => setNewList(event.target.value)}
-          autoFocus
         />
         <button type="submit">Create</button>
       </div>

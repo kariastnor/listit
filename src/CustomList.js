@@ -66,7 +66,6 @@ function CustomList() {
             // placeholder="Enter a name for the list"
             value={newItem}
             onChange={(event) => setNewItem(event.target.value)}
-            autoFocus
           />
           <button type="submit">Add</button>
         </div>
