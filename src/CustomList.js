@@ -14,7 +14,7 @@ function CustomList() {
   // First check if there's a local list stored on computer
   function getLocalStorageCustom() {
     let storedList = localStorage.getItem(
-      `${_.kebabCase(customList.name)}_custom_list_220523zx`
+      `${customList.id}_custom_list_220523zx`
     );
     if (storedList) {
       // Need to convert back from string to object
@@ -26,7 +26,7 @@ function CustomList() {
 
   useEffect(() => {
     localStorage.setItem(
-      `${_.kebabCase(customList.name)}_custom_list_220523zx`,
+      `${customList.id}_custom_list_220523zx`,
       JSON.stringify(items)
     );
   }, [items, customList]);
