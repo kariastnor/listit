@@ -8,7 +8,6 @@ function CustomList() {
   const { lists } = useContext(AppContext);
   const { listName } = useParams();
   const customList = lists.find((list) => _.kebabCase(list.name) === listName);
-  console.log(customList);
   const [items, setItems] = useState(getLocalStorageCustom());
   const [newItem, setNewItem] = useState("");
 
