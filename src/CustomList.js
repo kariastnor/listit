@@ -16,7 +16,6 @@ function CustomList() {
     let storedList = localStorage.getItem(
       `${customList.id}_custom_list_220523zx`
     );
-    console.log(`${customList.id}_custom_list_220523zx`);
     if (storedList) {
       // Need to convert back from string to object
       return JSON.parse(storedList);
