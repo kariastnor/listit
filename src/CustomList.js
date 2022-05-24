@@ -8,13 +8,14 @@ function CustomList() {
   const { lists } = useContext(AppContext);
   const { listName } = useParams();
   const customList = lists.find((list) => _.kebabCase(list.name) === listName);
+  console.log(customList);
   const [items, setItems] = useState(getLocalStorageCustom());
   const [newItem, setNewItem] = useState("");
 
   // First check if there's a local list stored on computer
   function getLocalStorageCustom() {
     let storedList = localStorage.getItem(
-      `${customList.name}_custom_list_220523zx`
+      `${_.kebabCase(customList.name)}_custom_list_220523zx`
     );
     if (storedList) {
       // Need to convert back from string to object
@@ -26,7 +27,7 @@ function CustomList() {
 
   useEffect(() => {
     localStorage.setItem(
-      `${customList.name}_custom_list_220523zx`,
+      `${_.kebabCase(customList.name)}_custom_list_220523zx`,
       JSON.stringify(items)
     );
   }, [items, customList]);
