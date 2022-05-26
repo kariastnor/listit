@@ -14,6 +14,7 @@ function Form() {
           value={newList}
           onChange={(event) => setNewList(event.target.value)}
           autoComplete="off"
+          autoFocus
         />
         <button type="submit">Create</button>
       </div>

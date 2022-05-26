@@ -112,6 +112,22 @@ button[type=submit] {
   max-width: 600px;
 }
 
+.warning {
+  align-items: center;
+  background-color: #fcaeae;
+  color: #890F0D;
+}
+
+.warning button {
+  background-color: transparent;
+  border: none;
+  color: #890F0D;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  /* height: fit-content; */
+}
+
 .custom-lists {
   background-color: white;
   margin-bottom: 0;

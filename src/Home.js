@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Lists from "./Lists";
 import { AppContext } from "./App";
+import Warning from "./Warning";
 
 function Home() {
-  const { lists, setLists } = useContext(AppContext);
+  const { lists, setLists, warning } = useContext(AppContext);
 
   return (
     <>
@@ -13,6 +14,7 @@ function Home() {
           Create new list
         </button>
       </Link>
+      {warning.boolean && <Warning />}
       {lists.length > 0 && <Lists />}
       {lists.length > 0 && (
         <button

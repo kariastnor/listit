@@ -12,13 +12,15 @@ function Lists() {
       {lists.map((list) => {
         return (
           <div className="lists" key={list.id}>
-            <Link to={`/${_.kebabCase(list.name)}`}>
+            <Link to={`/my-lists/${_.kebabCase(list.name)}`}>
               <p>{list.name}</p>
             </Link>
             <button
               type="button"
               className="delete-btn"
-              onClick={() => deleteList(list.id)}
+              onClick={() => {
+                deleteList(list.id, list.name);
+              }}
             >
               <MdDelete />
             </button>
