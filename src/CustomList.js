@@ -3,13 +3,18 @@ import { AppContext } from "./App";
 import { useParams } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import _ from "lodash";
+import { FaEdit } from "react-icons/fa";
+import EditForm from "./EditForm";
+import ItemForm from "./ItemForm";
 
 function CustomList() {
-  const { lists } = useContext(AppContext);
+  const { lists, deleteList } = useContext(AppContext);
   const { listName } = useParams();
   const customList = lists.find((list) => _.kebabCase(list.name) === listName);
+
   const [items, setItems] = useState(getLocalStorageCustom());
   const [newItem, setNewItem] = useState("");
+  const [editMode, setEditMode] = useState(false);
 
   // First check if there's a local list stored on computer
   function getLocalStorageCustom() {
@@ -55,23 +60,33 @@ function CustomList() {
 
   return (
     <>
-      <div className="lists custom-lists">
-        <h3>{customList.name}</h3>
-      </div>
-      <form onSubmit={handleCustomSubmit}>
-        <label htmlFor="newItem">Add a new item to list</label>
-        <div className="form-group">
-          <input
-            id="newItem"
-            type="text"
-            // placeholder="Enter a name for the list"
-            value={newItem}
-            onChange={(event) => setNewItem(event.target.value)}
-            autoComplete="off"
-          />
-          <button type="submit">Add</button>
+      {!editMode && (
+        <div className="lists custom-lists">
+          <h3>{customList.name}</h3>
+          <button
+            type="button"
+            className="icon-btn"
+            onClick={() => setEditMode(true)}
+          >
+            <FaEdit />
+          </button>
+          <button
+            type="button"
+            className="icon-btn"
+            onClick={() => deleteList(customList.id, customList.name)}
+          >
+            <MdDelete />
+          </button>
         </div>
-      </form>
+      )}
+      {editMode && (
+        <EditForm customList={customList} setEditMode={setEditMode} />
+      )}
+      <ItemForm
+        handleCustomSubmit={handleCustomSubmit}
+        newItem={newItem}
+        setNewItem={setNewItem}
+      />
       {items.length > 0 &&
         items.map((item) => {
           return (
@@ -79,7 +94,7 @@ function CustomList() {
               <p>{item.name}</p>
               <button
                 type="button"
-                className="delete-btn"
+                className="icon-btn"
                 onClick={() => deleteItem(item.id)}
               >
                 <MdDelete />

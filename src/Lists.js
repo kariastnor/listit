@@ -17,7 +17,7 @@ function Lists() {
             </Link>
             <button
               type="button"
-              className="delete-btn"
+              className="icon-btn"
               onClick={() => {
                 deleteList(list.id, list.name);
               }}
