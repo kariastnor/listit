@@ -61,7 +61,7 @@ function CustomList() {
   return (
     <>
       {!editMode && (
-        <div className="lists custom-lists">
+        <div className="custom-list">
           <h3>{customList.name}</h3>
           <button
             type="button"
@@ -90,7 +90,7 @@ function CustomList() {
       {items.length > 0 &&
         items.map((item) => {
           return (
-            <div className="lists" key={item.id}>
+            <div className="list list-item" key={item.id}>
               <p>{item.name}</p>
               <button
                 type="button"

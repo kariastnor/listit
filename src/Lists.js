@@ -11,7 +11,7 @@ function Lists() {
     <>
       {lists.map((list) => {
         return (
-          <div className="lists" key={list.id}>
+          <div className="list" key={list.id}>
             <Link to={`/my-lists/${_.kebabCase(list.name)}`}>
               <p>{list.name}</p>
             </Link>

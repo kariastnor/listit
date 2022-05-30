@@ -102,8 +102,9 @@ form button {
 }
 
 /* Kan lists kombineras med form? */
-.lists {
+.list {
   background-color: #F1EEE9;
+  box-shadow: 7px 7px 7px #f3f2f1;
   display: flex;
   justify-content: space-between;
   margin: 0.7rem auto;
@@ -126,22 +127,32 @@ form button {
   font-weight: 600;
 }
 
-.custom-lists {
+.custom-list {
   align-items: center;
   background-color: white;
+  display: flex;
   justify-content: flex-start;
-  margin-bottom: 0;
-  margin-top: 0;
+  margin: 0 auto;
+  width: 85vw;
+  max-width: 600px;
 }
 
-.lists h3 {
+.custom-list h3 {
   margin: 0 1.3rem 0 0;
 }
 
-.lists p {
+.list-item {
+  background-color: #f9f8f6;
+  box-shadow: none;
+}
+
+.list a {
+  width: 90%;
+}
+
+.list p {
   margin: 0;
   padding: 0.5rem 0.7rem;
-
 }
 
 .icon-btn {

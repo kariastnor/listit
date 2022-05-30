@@ -12,7 +12,7 @@ function Warning() {
   }, [warning, setWarning]);
 
   return (
-    <div className="lists warning">
+    <div className="list warning">
       <p>"{warning.name}" has been deleted</p>
       <button
         type="button"
