@@ -8,10 +8,8 @@ function SharedLayout() {
         <Link to="/">
           <h1>Yourganiser</h1>
         </Link>
-        <Link to="/">
-          <button className="standard-btn" type="button">
-            Home
-          </button>
+        <Link to="/" className="standard-btn">
+          Home
         </Link>
       </header>
       <div className="outlet">

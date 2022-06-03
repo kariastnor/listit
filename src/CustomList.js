@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { AppContext } from "./App";
+import { AppContext } from "./context";
 import { useParams } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import _ from "lodash";

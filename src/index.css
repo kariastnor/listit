@@ -14,6 +14,10 @@ header {
   width: 100%;
 }
 
+button {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 .outlet {
   margin-top: 95px;
 }
@@ -37,13 +41,14 @@ a {
   cursor: pointer;
   border: none;
   font-size: 1rem;
-  margin: 1.1rem 1rem 0 0;
-  padding: 0.5rem 0.7rem;
+  margin: 1.1rem 1rem 1rem 0;
+  padding: 0.3rem 0.7rem 0.5rem;
 }
 
 .center-btn {
   display: block;
   margin: 1.3rem auto;
+  width: fit-content;
 }
 
 form {
@@ -85,8 +90,7 @@ form button {
   flex-grow: 1;
   font-size: 1rem;
   margin-right: 1rem;
-  padding: 0.5rem 0.7rem;
-  /* width: 20%; */
+  padding: 0.3rem 0.7rem 0.5rem;
 }
 
 @media screen and (max-width: 360px) {
@@ -147,6 +151,8 @@ form button {
 }
 
 .list a {
+  margin: 0;
+  padding: 0.5rem 0.7rem;
   width: 90%;
 }
 

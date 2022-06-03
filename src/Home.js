@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Lists from "./Lists";
-import { AppContext } from "./App";
+import { AppContext } from "./context";
 import Warning from "./Warning";
 
 function Home() {
@@ -9,10 +9,8 @@ function Home() {
 
   return (
     <>
-      <Link to="new-list">
-        <button className="standard-btn center-btn" type="button">
-          Create new list
-        </button>
+      <Link to="new-list" className="standard-btn center-btn">
+        Create new list
       </Link>
       {warning.boolean && <Warning />}
       {lists.length > 0 && <Lists />}

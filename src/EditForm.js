@@ -1,4 +1,4 @@
-import { AppContext } from "./App";
+import { AppContext } from "./context";
 import { useContext, useEffect } from "react";
 
 function EditForm({ customList, setEditMode }) {

@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { AppContext } from "./App";
+import { AppContext } from "./context";
 
 function Warning() {
   const { warning, setWarning, undo } = useContext(AppContext);
