@@ -1,3 +1,9 @@
+# What is Yourganiser?
+
+Yourganiser is a simple website for creating lists, for those of us who like to make lists for everything! It was created using React, including React Router. The finished website is hosted on [https://yourganiser.netlify.app](https://yourganiser.netlify.app).
+
+See instructions below from React for how to run the project.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
