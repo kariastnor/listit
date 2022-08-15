@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "./context";
 import { useParams } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
-import _ from "lodash";
+import { IoIosSave } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
+import _ from "lodash";
 import EditForm from "./EditForm";
 import ItemForm from "./ItemForm";
 
@@ -15,6 +16,8 @@ function CustomList() {
   const [items, setItems] = useState(getLocalStorageCustom());
   const [newItem, setNewItem] = useState("");
   const [editMode, setEditMode] = useState(false);
+  const [itemEditId, setItemEditId] = useState(null);
+  const [itemEditName, setItemEditName] = useState("");
 
   // First check if there's a local list stored on computer
   function getLocalStorageCustom() {
@@ -50,6 +53,20 @@ function CustomList() {
     } else {
       document.getElementById("newItem").classList.add("error");
     }
+  }
+
+  function editItem() {
+    setItems((prevItems) => {
+      return prevItems.map((item) => {
+        if (item.id === itemEditId) {
+          return { ...item, name: itemEditName };
+        } else {
+          return item;
+        }
+      });
+    });
+    setItemEditId(null);
+    setItemEditName("");
   }
 
   function deleteItem(id) {
@@ -91,14 +108,45 @@ function CustomList() {
         items.map((item) => {
           return (
             <div className="list list-item" key={item.id}>
-              <p>{item.name}</p>
-              <button
-                type="button"
-                className="icon-btn"
-                onClick={() => deleteItem(item.id)}
-              >
-                <MdDelete />
-              </button>
+              {item.id !== itemEditId ? (
+                <p>{item.name}</p>
+              ) : (
+                <input
+                  type="text"
+                  value={itemEditName}
+                  onChange={(event) => {
+                    setItemEditName(event.target.value);
+                  }}
+                  autoComplete="off"
+                  autoFocus
+                />
+              )}
+              {item.id !== itemEditId ? (
+                <div>
+                  <button
+                    type="button"
+                    className="icon-btn"
+                    onClick={() => setItemEditId(item.id)}
+                  >
+                    <FaEdit />
+                  </button>
+                  <button
+                    type="button"
+                    className="icon-btn"
+                    onClick={() => deleteItem(item.id)}
+                  >
+                    <MdDelete />
+                  </button>
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  className="icon-btn"
+                  onClick={() => editItem()}
+                >
+                  <IoIosSave />
+                </button>
+              )}
             </div>
           );
         })}
