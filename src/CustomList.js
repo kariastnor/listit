@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { IoIosSave } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";
+import { MdOutlineCancel } from "react-icons/md";
 import _ from "lodash";
 import EditForm from "./EditForm";
 import ItemForm from "./ItemForm";
@@ -122,11 +123,14 @@ function CustomList() {
                 />
               )}
               {item.id !== itemEditId ? (
-                <div>
+                <div className="item-btns">
                   <button
                     type="button"
                     className="icon-btn"
-                    onClick={() => setItemEditId(item.id)}
+                    onClick={() => {
+                      setItemEditId(item.id);
+                      setItemEditName(item.name);
+                    }}
                   >
                     <FaEdit />
                   </button>
@@ -139,13 +143,25 @@ function CustomList() {
                   </button>
                 </div>
               ) : (
-                <button
-                  type="button"
-                  className="icon-btn"
-                  onClick={() => editItem()}
-                >
-                  <IoIosSave />
-                </button>
+                <div className="item-btns">
+                  <button
+                    type="button"
+                    className="icon-btn"
+                    onClick={() => editItem()}
+                  >
+                    <IoIosSave />
+                  </button>
+                  <button
+                    type="button"
+                    className="icon-btn"
+                    onClick={() => {
+                      setItemEditId(null);
+                      setItemEditName("");
+                    }}
+                  >
+                    <MdOutlineCancel />
+                  </button>
+                </div>
               )}
             </div>
           );

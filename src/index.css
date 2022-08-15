@@ -69,7 +69,7 @@ label {
   flex-wrap: nowrap;
 }
 
-input {
+.form-group input {
   border: none;
   flex-grow: 4;
   margin: 0 1rem;
@@ -108,7 +108,7 @@ form button {
 /* Kan lists kombineras med form? */
 .list {
   background-color: #F1EEE9;
-  box-shadow: 7px 7px 7px #f3f2f1;
+  box-shadow: 5px 5px 5px rgb(243, 242, 241, 0.8);
   display: flex;
   justify-content: space-between;
   margin: 0.7rem auto;
@@ -146,7 +146,7 @@ form button {
 }
 
 .list-item {
-  background-color: #f9f8f6;
+  background-color: white;
   box-shadow: none;
 }
 
@@ -159,6 +159,12 @@ form button {
 .list p {
   margin: 0;
   padding: 0.5rem 0.7rem;
+}
+
+.item-btns {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
 }
 
 .icon-btn {
