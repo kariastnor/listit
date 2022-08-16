@@ -3,11 +3,11 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Form() {
-  const { handleSubmit, listName, setListName } = useContext(AppContext);
+  const { handleListSubmit, listName, setListName } = useContext(AppContext);
   const navigate = useNavigate();
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleListSubmit}>
       <label htmlFor="listName">Create a new list</label>
       <div className="form-group">
         <input

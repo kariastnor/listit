@@ -5,7 +5,7 @@ import { AppContext } from "./context";
 import Warning from "./Warning";
 
 function Home() {
-  const { lists, setLists, warning } = useContext(AppContext);
+  const { lists, setLists, warning, setWarning } = useContext(AppContext);
 
   return (
     <>
@@ -18,7 +18,10 @@ function Home() {
         <button
           type="button"
           className="standard-btn center-btn"
-          onClick={() => setLists([])}
+          onClick={() => {
+            setLists([]);
+            setWarning({ boolean: true, name: "All lists have" });
+          }}
         >
           Remove all lists
         </button>

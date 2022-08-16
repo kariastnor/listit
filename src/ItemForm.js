@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "./context";
 
-function ItemForm({ handleCustomSubmit, newItem, setNewItem }) {
+function ItemForm() {
+  const { handleCustomSubmit, newItem, setNewItem } = useContext(AppContext);
+
   return (
     <form onSubmit={handleCustomSubmit}>
       <label htmlFor="newItem">Add a new item to list</label>

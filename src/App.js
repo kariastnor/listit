@@ -4,18 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import CustomList from "./CustomList";
 import CreateForm from "./CreateForm";
 
-// function App() {
-//   return (
-//     <Routes>
-//       <Route path="/" element={<SharedLayout />}>
-//         <Route index element={<Home />} />
-//         <Route path="my-lists/:listName" element={<CustomList />} />
-//         <Route path="new-list" element={<CreateForm />} />
-//       </Route>
-//     </Routes>
-//   );
-// }
-
 function App() {
   return (
     <>
@@ -23,7 +11,7 @@ function App() {
       <main className="main">
         <Routes>
           <Route index element={<Home />} />
-          <Route path="my-lists/:listName" element={<CustomList />} />
+          <Route path="my-lists/:listNm" element={<CustomList />} />
           <Route path="new-list" element={<CreateForm />} />
         </Routes>
       </main>

@@ -13,7 +13,7 @@ function Warning() {
 
   return (
     <div className="list warning">
-      <p>"{warning.name}" has been deleted</p>
+      <p>{warning.name} been deleted</p>
       <button
         type="button"
         onClick={() => {

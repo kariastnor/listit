@@ -1,9 +1,12 @@
 import { AppContext } from "./context";
 import { useContext, useEffect } from "react";
 
-function EditForm({ customList, setEditMode }) {
-  const { editListName, listName, setListName } = useContext(AppContext);
+function EditForm({ setEditMode }) {
+  const { editListName, listName, setListName, customList } =
+    useContext(AppContext);
 
+  // On initial render, set the listName to the current customList name, and use the listName in the input field value.
+  // This way the name will display in the input field to then be edited.
   useEffect(() => {
     setListName(customList.name);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
