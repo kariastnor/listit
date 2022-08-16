@@ -1,6 +1,6 @@
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { AppContext } from "./context";
+import { AppContext } from "../context";
 import { useContext } from "react";
 import _ from "lodash";
 

@@ -1,11 +1,11 @@
 import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { AppContext } from "./context";
+import { AppContext } from "../context";
 import _ from "lodash";
-import EditForm from "./EditForm";
-import ItemForm from "./ItemForm";
-import CustomListHeading from "./CustomListHeading";
-import ListItem from "./ListItem";
+import EditForm from "../components/EditForm";
+import ItemForm from "../components/ItemForm";
+import CustomListHeading from "../components/CustomListHeading";
+import ListItem from "../components/ListItem";
 
 function CustomList() {
   const { lists, items, setItems, setCustomList } = useContext(AppContext);

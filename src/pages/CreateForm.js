@@ -1,4 +1,4 @@
-import { AppContext } from "./context";
+import { AppContext } from "../context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 

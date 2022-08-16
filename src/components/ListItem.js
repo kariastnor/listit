@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AppContext } from "./context";
+import { AppContext } from "../context";
 import { MdDelete } from "react-icons/md";
 import { IoIosSave } from "react-icons/io";
 import { FaEdit } from "react-icons/fa";

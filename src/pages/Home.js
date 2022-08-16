@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import Lists from "./Lists";
-import { AppContext } from "./context";
-import Warning from "./Warning";
+import Lists from "../components/Lists";
+import { AppContext } from "../context";
+import Warning from "../components/Warning";
 
 function Home() {
   const { lists, setLists, warning, setWarning } = useContext(AppContext);
