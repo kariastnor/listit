@@ -24,7 +24,7 @@ function AppProvider({ children }) {
 
   // States for individual lists
   const [customList, setCustomList] = useState("");
-  const [items, setItems] = useState([]);
+  const [items, setItems, { undo: itemUndo }] = useUndoable([]);
   const [newItem, setNewItem] = useState("");
   const [itemEditId, setItemEditId] = useState(null);
   const [itemEditName, setItemEditName] = useState("");
@@ -161,6 +161,7 @@ function AppProvider({ children }) {
         lists,
         setLists,
         undo,
+        itemUndo,
         listName,
         setListName,
         warning,

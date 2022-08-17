@@ -12,7 +12,7 @@ function Home() {
       <Link to="new-list" className="standard-btn center-btn">
         Create new list
       </Link>
-      {warning.boolean && <Warning />}
+      {warning.boolean && <Warning type="list" />}
       {lists.length > 0 && <Lists />}
       {lists.length > 0 && (
         <button

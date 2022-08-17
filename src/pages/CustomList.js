@@ -5,10 +5,12 @@ import _ from "lodash";
 import EditForm from "../components/EditForm";
 import ItemForm from "../components/ItemForm";
 import CustomListHeading from "../components/CustomListHeading";
-import ListItem from "../components/ListItem";
+import ListItems from "../components/ListItems";
+import Warning from "../components/Warning";
 
 function CustomList() {
-  const { lists, items, setItems, setCustomList } = useContext(AppContext);
+  const { lists, items, setItems, setCustomList, warning, setWarning } =
+    useContext(AppContext);
 
   // State value used for conditional rendering of list heading or list edit view
   const [editMode, setEditMode] = useState(false);
@@ -27,15 +29,16 @@ function CustomList() {
       {!editMode && <CustomListHeading setEditMode={setEditMode} />}
       {editMode && <EditForm setEditMode={setEditMode} />}
       <ItemForm />
-      {items.length > 0 &&
-        items.map((item) => {
-          return <ListItem key={item.id} item={item} />;
-        })}
+      {warning.boolean && <Warning type="item" />}
+      {items.length > 0 && <ListItems />}
       {items.length > 0 && (
         <button
           type="button"
           className="standard-btn center-btn"
-          onClick={() => setItems([])}
+          onClick={() => {
+            setItems([]);
+            setWarning({ boolean: true, name: "All items have" });
+          }}
         >
           Remove all items
         </button>

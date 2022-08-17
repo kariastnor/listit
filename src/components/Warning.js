@@ -1,15 +1,17 @@
 import { useEffect, useContext } from "react";
 import { AppContext } from "../context";
 
-function Warning() {
-  const { warning, setWarning, undo } = useContext(AppContext);
+function Warning({ type }) {
+  const { warning, setWarning, undo, itemUndo } = useContext(AppContext);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       setWarning({ boolean: false, name: "" });
-    }, 5000);
+    }, 4000);
     return () => clearTimeout(timeout);
-  }, [warning, setWarning]);
+
+    // eslint-disable-next-line
+  }, [warning]);
 
   return (
     <div className="list warning">
@@ -17,7 +19,12 @@ function Warning() {
       <button
         type="button"
         onClick={() => {
-          undo();
+          // Use undo function from useUndoable package. Same function for items but renamed since they can't have the same name.
+          if (type === "list") {
+            undo();
+          } else {
+            itemUndo();
+          }
           setWarning({ boolean: false, name: "" });
         }}
       >
