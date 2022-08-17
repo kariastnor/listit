@@ -36,7 +36,7 @@ a {
 
 .standard-btn {
   background-color: #15133C;
-  border-radius: 5%;
+  border-radius: 7px;
   color: white;
   cursor: pointer;
   border: none;
@@ -55,6 +55,7 @@ form {
   background-color: #F1EEE9;
   margin: 2rem auto;
   padding: 1rem 0;
+  position: relative;
   width: 85vw;
   max-width: 600px;
 }
@@ -64,9 +65,43 @@ label {
   margin: 0 0 0.5rem 1rem;
 }
 
+.create-form-heading {
+  display: flex;
+  align-items: center;
+}
+
+.warning-btn {
+  background-color: transparent;
+  color: #15133C;
+  cursor: default;
+  font-size: 1.2rem;
+  margin: 0 0 0 1rem;
+  padding: 0;
+  max-width: fit-content;
+}
+
+.security-warning {
+  background-color: rgb(21, 19, 60, 0.7);
+  border-radius: 10px;
+  position: absolute;
+  left: 85px;
+  top: -50px;
+  width: 145px;
+}
+
+.hidden {
+  display: none;
+}
+
+.security-warning p {
+  color: white;
+  font-size: 0.8rem;
+  margin: 0;
+  padding: 0.3rem 0.5rem 0.5rem 0.5rem;
+}
+
 .form-group {
   display: flex;
-  flex-wrap: nowrap;
 }
 
 .form-group input {
@@ -74,7 +109,6 @@ label {
   flex-grow: 4;
   margin: 0 1rem;
   padding: 0.5rem 0.7rem;
-  /* width: 80%; */
 }
 
 input.error {
@@ -84,7 +118,7 @@ input.error {
 form button {
   background-color: #15133C;
   border: none;
-  border-radius: 5%;
+  border-radius: 7px;
   color: white;
   cursor: pointer;
   flex-grow: 1;
@@ -93,19 +127,22 @@ form button {
   padding: 0.3rem 0.7rem 0.5rem;
 }
 
-@media screen and (max-width: 360px) {
+.btn-group {
+  display: flex;
+}
+
+@media screen and (max-width: 450px) {
   .form-group {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-rows: auto auto;
   }
 
   form button {
-    flex-basis: 70px;
     margin: 0.6rem 1rem 0;
     max-width: 70px;
   }
 }
 
-/* Kan lists kombineras med form? */
 .list {
   background-color: #F1EEE9;
   box-shadow: 5px 5px 5px rgb(243, 242, 241, 0.8);

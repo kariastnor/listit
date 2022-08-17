@@ -29,16 +29,18 @@ function EditForm({ setEditMode }) {
           autoComplete="off"
           autoFocus
         />
-        <button type="submit">Update</button>
-        <button
-          type="button"
-          onClick={() => {
-            setEditMode(false);
-            setListName("");
-          }}
-        >
-          Cancel
-        </button>
+        <div className="btn-group">
+          <button type="submit">Update</button>
+          <button
+            type="button"
+            onClick={() => {
+              setEditMode(false);
+              setListName("");
+            }}
+          >
+            Cancel
+          </button>
+        </div>
       </div>
     </form>
   );
