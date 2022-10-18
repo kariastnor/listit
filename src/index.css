@@ -97,6 +97,7 @@ label {
   top: -50px;
   opacity: 0.8;
   width: 145px;
+  z-index: 100;
 }
 
 .hidden {
